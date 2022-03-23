@@ -1,5 +1,6 @@
 # LinkedList_add
 
+first list chars pipe delimited
 
 1|2|3
 
