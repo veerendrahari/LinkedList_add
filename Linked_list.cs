@@ -69,18 +69,6 @@ namespace LinkedList.Runner
 
         }
 
-        public static bool AddZeroToMissingNodes(LinkedList<int> smallerList, LinkedList<int> biggerlist2)
-        {
-            bool isMappingSucess = false;
-            while (biggerlist2.Count > smallerList.Count)
-            {
-                smallerList.AddFirst(0);
-            }
-            if (biggerlist2.Count == smallerList.Count)
-            {
-                isMappingSucess = true;
-            }
-            return isMappingSucess;
-        }
+      
     }
 }
