@@ -28,15 +28,6 @@ namespace LinkedList.Runner
                 list2.AddLast(int.Parse(num));
             }
 
-            if (list2.Count < list1.Count)
-            {
-                AddZeroToMissingNodes(list2, list1);
-            }
-            if (list2.Count > list1.Count)
-            {
-                AddZeroToMissingNodes(list1, list2);
-            }
-
             Console.WriteLine(string.Join("->", list1));
             Console.WriteLine(string.Join("->", list2));
 
@@ -50,18 +41,20 @@ namespace LinkedList.Runner
             var carry = 0;
             LinkedList<int> output = new LinkedList<int>();
 
-            while(list1?.Count >0)
+            while(list1?.Count >0 || list2?.Count >0 )
             {
-                var sum = carry + list2.Last.Value + list1.Last.Value;
+                var sum = carry + (list2?.Last?.Value ?? 0) + (list1?.Last?.Value ?? 0);
 
                 carry = (sum >= 10) ? 1 : 0;
                 sum = sum % 10;
+                
                 output.AddFirst(sum);
-                if (list1 != null)
+                
+                if (list1?.Count > 0)
                 {
                     list1.RemoveLast();
                 }
-                if (list2 != null)
+                if (list2?.Count > 0)
                 {
                     list2.RemoveLast();
                 }
